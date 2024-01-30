@@ -3,7 +3,7 @@ name: Data Engineer Assessment
 on:
   pull_request:
     branches:
-      - master  # Consider changing the branch name if needed
+      - master
 
 jobs:
   assessment:
@@ -16,13 +16,23 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Choose appropriate Python version
+          python-version: '3.9.18'
 
       - name: Set up PostgreSQL  # Replace with appropriate database setup steps
         run: |
-          sudo apt-get update
-          sudo apt-get install postgresql
+          # sudo apt-get update
+          # sudo apt-get install postgresql
           # Additional setup commands for creating a test database and loading data
+          brew update
+          brew install postgresql
+          brew services start postgresql
+          createuser testuser
+          createdb testdb
+          psql postgres
+          \c testdb
+          \i /path/to/schema.sql
+          \i /path/to/import.sql
+          \i /Users/owenzhang/Desktop/eng-intern-assessment-data/sql/import.sql
 
       - name: Run SQL Tests
         run: |

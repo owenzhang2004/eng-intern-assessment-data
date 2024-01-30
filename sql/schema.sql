@@ -40,8 +40,8 @@ CREATE TABLE Order_Items (
   product_id INT,
   quantity INT,
   unit_price DECIMAL(10, 2),
-  FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-  FOREIGN KEY (product_id) REFERENCES Products(product_id)
+  FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+  -- FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- Table: Reviews
@@ -52,8 +52,8 @@ CREATE TABLE Reviews (
   rating INT,
   review_text TEXT,
   review_date DATE,
-  FOREIGN KEY (user_id) REFERENCES Users(user_id),
-  FOREIGN KEY (product_id) REFERENCES Products(product_id)
+  FOREIGN KEY (user_id) REFERENCES Users(user_id)
+  -- FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- Table: Cart
@@ -69,8 +69,8 @@ CREATE TABLE Cart_Items (
   cart_id INT,
   product_id INT,
   quantity INT,
-  FOREIGN KEY (cart_id) REFERENCES Cart(cart_id),
-  FOREIGN KEY (product_id) REFERENCES Products(product_id)
+  FOREIGN KEY (cart_id) REFERENCES Cart(cart_id)
+  -- FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- Table: Payments
